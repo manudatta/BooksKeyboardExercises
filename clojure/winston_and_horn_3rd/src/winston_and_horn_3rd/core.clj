@@ -32,4 +32,58 @@ friends
 ;;())( ; neither
 ;;((ABC ; neither
 (first '(fast computers are nice))
-(
+(first '(a b c))
+(rest '(fast computers are nice))
+(rest '(a b c))
+(rest '(c)) ;; is nil or ()
+(first ()) ;; nil or ()
+(first '((a b) (c d)))
+;;(first (rest (a b c)))
+(first (rest '(a b c)))
+(first '(rest (a b c)))
+;; problem 2.2
+(first '(p h w))
+(rest '(b k p h))
+(first '((a b) (c d)))
+(rest '((a b) (c d)))
+(first (rest '((a b) (c d))))
+(rest (first '((a b) (c d))))
+(rest (first (rest '((a b) (c d)))))
+(first (rest (first '((a b) (c d)))))
+;; problem 2.3
+(first (rest (first (rest '((a b) (c d) (e f))))))
+(first (first (rest (rest '((a b) (c d) (e f))))))
+(first (first (rest '(rest ((a b) (c d) (e f))))))
+;;(first (first '(rest (rest ((a b) (c d) (e f))))))
+(first '(first (rest (rest ((a b) (c d) (e f))))))
+'(first (first (rest (rest ((a b) (c d) (e f))))))
+;; problem 2.4
+(first (rest (rest '(apple orange pear grapefruit))))
+(first (first (rest '((apple orange) (pear grapefruit)))))
+(first (first (rest (rest (first '(((apple) (orange) (pear) (grapefruit))))))))
+(first (first (first (rest (rest '(apple (orange) ((pear)) (((grapefruit)))))))))
+(first (first (rest (rest '((((apple))) ((orange)) (pear) grapefruit)))))
+(first (rest (first '((((apple) orange) pear) grapefruit))))
+
+
+(def ab-list '(a b))
+ab-list
+'ab-list
+(first ab-list)
+(rest ab-list)
+;;(def ab-list '(a b) xy-list '(x y)) no out of box way to do multiple bindings
+nil
+true
+false
+;;(def true nil)
+(def new-front 'a)
+(def old-list '(b c))
+(cons new-front old-list)
+(first (cons new-front old-list))
+(rest (cons new-front old-list))
+(def ab-list '(a b))
+(def xy-list '(x y))
+(concat ab-list xy-list)
+(concat ab-list xy-list ab-list)
+(concat ab-list '() xy-list '())
+(concat '((a) (b)) '((c) (d)))
