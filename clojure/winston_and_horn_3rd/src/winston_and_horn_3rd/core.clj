@@ -1,5 +1,5 @@
 (ns winston-and-horn-3rd.core)
-
+;; Start of chapter 2
 ;; Chapter:2 pg:10-35
 (+ 3.14 2.71)
 ;; setf -> def
@@ -81,9 +81,90 @@ false
 (cons new-front old-list)
 (first (cons new-front old-list))
 (rest (cons new-front old-list))
+;; def cannot take multple assigments 
 (def ab-list '(a b))
 (def xy-list '(x y))
 (concat ab-list xy-list)
 (concat ab-list xy-list ab-list)
 (concat ab-list '() xy-list '())
 (concat '((a) (b)) '((c) (d)))
+
+(list 'a 'b 'c) ;; list different from concat
+(def front 'a)
+(def middle 'b)
+(def back 'c)
+(front middle back) ;; not an error in clojure gives c
+(def ab-list '(a b))
+(list ab-list ab-list)
+(list ab-list ab-list ab-list)
+(list 'ab-list ab-list)
+
+(def ab-list '(a b))
+(def cd-list '(c d))
+(concat ab-list cd-list)
+(list ab-list cd-list)
+(cons ab-list cd-list)
+(concat ab-list ab-list)
+(list ab-list ab-list)
+(cons ab-list ab-list)
+;;Error in clojure: (concat 'ab-list ab-list)
+(list 'ab-list ab-list)
+(cons 'ab-list ab-list)
+;; problem 2.5
+(concat '(a b c) '())
+(list '(a b c) '()) ;; surprise!
+(cons '(a b c) '()) ;; expected this to be result of last line
+
+;; problem 2.6
+(def tools (list 'hammer 'screwdriver))
+(cons 'pliers tools)
+(def tools (cons 'pliers tools))
+tools
+(concat '(saw wrench) tools)
+(def tools (concat '(saw wrench) tools))
+tools
+;; clojure has no eq of pop push nothing is mutable that way
+(def abc-list '(a b c))
+(rest abc-list)
+(nthrest abc-list 2) ;; different name different bindings from lisp
+(nthrest abc-list 50)
+(butlast abc-list) ;; takes only one arg
+(last abc-list) ;; different
+(count abc-list) ;; different from many langs
+(reverse abc-list) ;; 
+;; problem 2.8
+(count '(plato socrates aristotle))
+(count '((plato) (socrates) (aristotle)))
+(count '((plato socrates aristotle)))
+(reverse '(plato  socrates aristotle))
+(reverse '((plato) (socrates) (aristotle)))
+(reverse '((plato socrates aristotle)))
+
+;;list is not associative in clojure assoc doesn't work
+(/ 27 9)
+(/ 22 7)
+(float (/ 22 7))
+;; doesn't work unless given float or double (Math/round 5 3)  
+(+ 2 1.5)
+(- 8)
+(- -8)
+(/ 2) ;; !
+(max 1 2 3)
+(min 2 4 3)
+(Math/pow 3.3 2.2)
+(Math/pow 2.2 3.3)
+(Math/sqrt 9)
+(Math/sqrt -9) ;; sqrt should have given complex ? 
+(Math/abs -5)
+;; problem 2.10
+(/ (+ 3 1) (- 3 1))
+(* (max 3 4 5) (min 3 4 5))
+(min (max 3 1 4) (max 2 7 1))
+
+;; End of chapter 2
+
+
+
+
+
+
