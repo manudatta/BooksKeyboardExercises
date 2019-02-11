@@ -2,7 +2,7 @@
 ;; Start of chapter 2
 ;; Chapter:2 pg:10-35
 (+ 3.14 2.71)
-;; setf -> def
+;; The def does the work of setf in clojure
 (def friends '(dick jane sally))
 friends
 (def enemies '(troll grinch ghost))
@@ -164,7 +164,38 @@ tools
 ;; End of chapter 2
 
 
+;; Chapter 3: Procedure Definition and Binding
+(def meals '(breakfast lunch tea dinner))
+(def route2 '(boston cambridge lincoln concord))
 
+;; clojure equivalent of defun is defn 
+;; instead of list parameters it takes array/vector paramaters
 
+(defn both-ends [whole-list] 
+  (list (first whole-list) (last whole-list)))
 
+;; Problem 3-1, 3-2, 3-3, 3-4, 3-5, 3-6
+(def sinners '(adam eve))
+;; 3-1
+(defn exchange [l]
+  (list (second l) (first l)))
+;; 3-2
+(defn construct [first rest]
+  (list first rest))
+;; 3-3
+;; conj uses the fastest way depending upon collection to add element to collection for list in particular it is in front
+(defn rotate-left [xs]
+  (concat (rest xs) (list first xs)))
+;; 3-4
+(defn rotate-right [xs]
+  (conj  (butlast xs)  (last xs)))
+;; 3-5 
+(defn palindromize [xs]
+  (concat xs (reverse xs)))
+;; 3-6
+(defn f-to-c [T]
+  (float (* (/ 100 180) (- T 32))))
+(defn c-to-f [T]
+  (float (+ (* 1.8 T) 32)))
 
+  
