@@ -12,9 +12,8 @@
 import util.Random
 
 object Chapter3 {
-/*
   println("Welcome to the Scala worksheet")
-  val v = 3
+/*  val v = 3
 	def product(s:String):Long = if (s=="") 1 else product(s.drop(1))*s(0).toLong
 	product("Hello")
 	def compute(x:Double,n:Int):Double = if (n==0) 1
@@ -26,7 +25,7 @@ object Chapter3 {
 	// Chapter 3
 	//1
 	val rnd = new Random                      //> rnd  : scala.util.Random = scala.util.Random@20fa23c1
-	var n = 20                                //> n  : Int = 20
+	var n = 21                                //> n  : Int = 20
 	val b = (for( i <- 0 until n ) yield rnd.nextInt).toArray
                                                   //> b  : Array[Int] = Array(-1188120723, -839425946, -1475399633, 1356397305, -3
                                                   //| 91926850, 2096092240, -1466950398, 2032847273, -1788876486, -877333691, -177
@@ -110,13 +109,14 @@ object Chapter3 {
                                                   //| Output exceeds cutoff limit.
   //10
   import java.awt.datatransfer._
-  import scala.collection.JavaConversions.asScalaBuffer
+/*  import scala.collection.JavaConversions.asScalaBuffer
   import scala.collection.mutable.Buffer
   val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
                                                   //> flavors  : java.awt.datatransfer.SystemFlavorMap = java.awt.datatransfer.Sy
                                                   //| stemFlavorMap@2038ae61
   val cflavors:Buffer[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
                                                   //> cflavors  : scala.collection.mutable.Buffer[String] = Buffer(PNG, JFIF, DIB
-                                                  //| , ENHMETAFILE, METAFILEPICT)|
-
+                                                  //| , ENHMETAFILE, METAFILEPICT)
+|
+*/
 }
